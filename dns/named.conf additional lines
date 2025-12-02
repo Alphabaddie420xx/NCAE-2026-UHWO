@@ -1,4 +1,4 @@
-# add this line to the options section:
+# add this line to the options section -- disable zone transfers
 allow-transfer {"none";};
 
 # blah finish this later
