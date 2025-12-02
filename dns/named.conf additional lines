@@ -1,0 +1,4 @@
+# add this line to the options section:
+allow-transfer {"none";};
+
+# blah finish this later
