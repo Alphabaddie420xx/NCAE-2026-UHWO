@@ -1,2 +1,2 @@
 # NCAE-2026-UHWO
-Repository for our scripts
+Repository for our scripts + other stuff
