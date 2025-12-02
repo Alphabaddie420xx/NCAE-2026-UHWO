@@ -11,7 +11,7 @@ iptables -P FORWARD DROP
 iptables -A INPUT  -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
 
-# Allow ping (ICMP echo-request/echo-reply)
+# Allow ping (ICMP echo-request/echo-reply) -- might get rid of this later
 iptables -A INPUT  -p icmp --icmp-type echo-request -j ACCEPT
 iptables -A OUTPUT -p icmp --icmp-type echo-reply  -j ACCEPT
 iptables -A INPUT  -p icmp --icmp-type echo-reply   -j ACCEPT
