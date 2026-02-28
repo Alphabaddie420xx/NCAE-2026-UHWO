@@ -40,3 +40,18 @@ iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 # Allow DNS from external subnet
 iptables -A INPUT  -s 172.18.0.0/16 -p udp --dport 53 -j ACCEPT
 iptables -A INPUT  -s 172.18.0.0/16 -p tcp --dport 53 -j ACCEPT
+
+
+----------------------------------------------------------------
+# If using firewalld
+
+sudo firewall-cmd --permanent --set-target=DROP
+sudo firewall-cmd --permanent --add-interface=lo
+sudo firewall-cmd --permanent --add-icmp-block-inversion
+sudo firewall-cmd --permanent --add-icmp-block=echo-request
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="192.168.0.0/16" service name="dns" accept'
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="192.168.101.1" service name="dns" accept'
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.0.0/16" service name="dns" accept'
+sudo firewall-cmd --reload
+
+List rules: firewall-cmd --list-all
